@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Sonya tokens
+   Two layers, same as the Figma file:
+   1. Primitives  (--neutral-*, --blue-* …) — raw palette, never used in components
+   2. Semantic    (--bg-*, --text-*, --border-*, --icon-*, --status-*, --data-*, --accent-*)
+   Components only read semantic tokens, so a theme is just a remap.
+   ========================================================================== */
+
+:root {
+  /* ---------- Primitives ---------- */
+  --neutral-0: #ffffff;
+  --neutral-25: #fcfcfc;
+  --neutral-50: #f7f7f7;
+  --neutral-100: #f0f0ef;
+  --neutral-150: #ebebeb;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d6d6d6;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #424242;
+  --neutral-800: #292929;
+  --neutral-900: #141414;
+  --neutral-950: #0f0f0f;
+
+  --blue-25: #f5faff;
+  --blue-50: #eff8ff;
+  --blue-100: #d1e9ff;
+  --blue-200: #b2ddff;
+  --blue-300: #84caff;
+  --blue-400: #53b1fd;
+  --blue-500: #2e90fa;
+  --blue-600: #1570ef;
+  --blue-700: #175cd3;
+  --blue-800: #1849a9;
+  --blue-900: #194185;
+
+  --green-50: #edfcf2;
+  --green-100: #d3f8df;
+  --green-300: #73e2a3;
+  --green-400: #3ccb7f;
+  --green-500: #16b364;
+  --green-600: #099250;
+  --green-700: #087443;
+
+  --red-50: #fef3f2;
+  --red-100: #fee4e2;
+  --red-300: #fda29b;
+  --red-400: #f97066;
+  --red-500: #f04438;
+  --red-600: #d92d20;
+  --red-700: #b42318;
+
+  --orange-50: #fff6e5;
+  --orange-100: #ffe8bf;
+  --orange-400: #ffa100;
+  --orange-500: #ff8000;
+  --orange-700: #b36f00;
+
+  --purple-50: #f4efff;
+  --purple-500: #7b42ff;
+  --purple-600: #4f07f7;
+
+  --pink-50: #fdf0fa;
+  --pink-400: #eb5ec0;
+  --pink-500: #ff2bf8;
+  --pink-600: #e708a4;
+
+  /* ---------- Semantic · light ---------- */
+  --bg-frame: var(--neutral-100);         /* app frame behind sidebar + panel */
+  --bg-canvas: var(--neutral-50);         /* sidebar, card shells */
+  --bg-surface: var(--neutral-0);         /* main panel, inner panels, controls */
+  --bg-subtle: var(--neutral-100);        /* secondary filled buttons, total rows */
+  --bg-hover: var(--neutral-150);
+  --bg-muted: var(--neutral-300);
+  --bg-inverse: var(--neutral-900);
+  --bg-brand-subtle: var(--blue-50);
+  --bg-success-subtle: var(--green-100);
+  --bg-danger-subtle: var(--red-100);
+  --bg-warning-subtle: var(--orange-50);
+  --bg-scrim: rgb(20 20 20 / 0.32);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-tertiary: var(--neutral-400);
+  --text-inverse: var(--neutral-0);
+  --text-success: var(--green-600);
+  --text-danger: var(--red-600);
+  --text-warning: var(--orange-700);
+  --text-brand: var(--blue-600);
+
+  --border-default: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-inverse: var(--neutral-0);
+  --border-brand: var(--blue-400);
+  --ring-1: var(--neutral-150);            /* 1px shadow rings */
+
+  --icon-default: var(--neutral-600);
+  --icon-subtle: var(--neutral-500);
+  --icon-muted: var(--neutral-400);
+  --icon-strong: var(--neutral-900);
+  --icon-disabled: var(--neutral-300);
+
+  --status-success: var(--green-500);
+  --status-warning: var(--orange-400);
+  --status-danger: var(--red-500);
+
+  --data-1: var(--blue-600);               /* primary series */
+  --data-1-highlight: var(--blue-400);
+  --data-2: var(--blue-200);               /* secondary series */
+  --data-ghost: var(--neutral-50);
+  --data-ghost-ring: var(--neutral-150);
+  --data-target: var(--neutral-600);
+  --data-grid: var(--neutral-150);
+
+  --accent-blue: var(--blue-500);
+  --accent-blue-strong: var(--blue-600);
+  --accent-orange: var(--orange-400);
+  --accent-orange-strong: var(--orange-500);
+  --accent-green: var(--green-400);
+  --accent-green-strong: var(--green-500);
+  --accent-purple: var(--purple-500);
+  --accent-purple-strong: var(--purple-600);
+  --accent-pink: var(--pink-400);
+  --accent-pink-strong: var(--pink-600);
+
+  --brand-ink: var(--neutral-800);
+  --primary-bg: var(--neutral-800);
+  --primary-bg-hover: var(--neutral-900);
+  --primary-bg-pressed: var(--neutral-950);
+  --primary-fg: var(--neutral-0);
+
+  /* ---------- Effects (from Effects page) ---------- */
+  --fx-xs: 0 1px 2px rgb(40 40 40 / 0.08);
+  --fx-xs-faint: 0 1px 2px rgb(40 40 40 / 0.05);
+  --fx-card: 0 1px 2px rgb(40 40 40 / 0.08), 0 0 0 1px var(--neutral-150);
+  --fx-control: 0 1px 2px rgb(40 40 40 / 0.08), 0 0 0 1px #ececec;
+  --fx-control-soft: 0 1px 2px rgb(26 26 26 / 0.06), 0 0 0 1px rgb(26 26 26 / 0.05);
+  --fx-input: 0 1px 2px rgb(40 40 40 / 0.08), inset 0 0 4px rgb(255 255 255 / 0.6), 0 0 0 1px var(--neutral-200);
+  --fx-panel: 0 2px 4px rgb(35 35 35 / 0.03), 0 1px 2px rgb(35 35 35 / 0.04), 0 0 0 1px #e9e5e2;
+  --fx-tooltip: 0 2px 3px rgb(19 20 22 / 0.2), 0 1px 1px rgb(0 0 0 / 0.1);
+  --fx-popover: 0 12px 32px -8px rgb(20 20 20 / 0.16), 0 2px 6px rgb(20 20 20 / 0.06), 0 0 0 1px var(--neutral-150);
+  --fx-button-primary: inset 0 1px 20px rgb(255 255 255 / 0.16), 0 0 0 1px var(--neutral-800), 0 1px 2px rgb(9 9 11 / 0.08);
+  --fx-nav-active: inset 0 1px 20px rgb(255 255 255 / 0.16), 0 0 0 1px var(--neutral-150), 0 1px 2px rgb(9 9 11 / 0.08);
+  --fx-inner-ring: inset 0 0 0 0.8px var(--neutral-150);
+  --fx-focus: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--blue-400);
+  --fx-glow-success: 0 0 4px rgb(24 198 105 / 0.5);
+  --fx-glow-warning: 0 0 4px rgb(255 161 0 / 0.5);
+  --fx-glow-danger: 0 0 4px rgb(240 68 56 / 0.5);
+
+  color-scheme: light;
+}
+
+/* ---------- Semantic · dark ---------- */
+:root[data-theme="dark"] {
+  --bg-frame: #0b0b0c;
+  --bg-canvas: #141416;
+  --bg-surface: #1b1b1e;
+  --bg-subtle: #242428;
+  --bg-hover: #2a2a2f;
+  --bg-muted: #3a3a40;
+  --bg-inverse: #f5f5f5;
+  --bg-brand-subtle: rgb(46 144 250 / 0.14);
+  --bg-success-subtle: rgb(22 179 100 / 0.16);
+  --bg-danger-subtle: rgb(240 68 56 / 0.16);
+  --bg-warning-subtle: rgb(255 161 0 / 0.14);
+  --bg-scrim: rgb(0 0 0 / 0.6);
+
+  --text-primary: #ededed;
+  --text-secondary: #a8a8ad;
+  --text-tertiary: #6e6e75;
+  --text-inverse: #141414;
+  --text-success: #3ccb7f;
+  --text-danger: #f97066;
+  --text-warning: #ffb733;
+  --text-brand: #53b1fd;
+
+  --border-default: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.14);
+  --border-inverse: #141414;
+  --border-brand: var(--blue-500);
+  --ring-1: rgb(255 255 255 / 0.07);
+
+  --icon-default: #a8a8ad;
+  --icon-subtle: #8a8a91;
+  --icon-muted: #6e6e75;
+  --icon-strong: #ededed;
+  --icon-disabled: #3a3a40;
+
+  --data-1: var(--blue-500);
+  --data-1-highlight: var(--blue-300);
+  --data-2: rgb(83 177 253 / 0.38);
+  --data-ghost: #202024;
+  --data-ghost-ring: rgb(255 255 255 / 0.04);
+  --data-target: #a8a8ad;
+  --data-grid: rgb(255 255 255 / 0.06);
+
+  --brand-ink: #4a4a52;
+  --primary-bg: #f2f2f2;
+  --primary-bg-hover: #ffffff;
+  --primary-bg-pressed: #dcdcdc;
+  --primary-fg: #141414;
+
+  --fx-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+  --fx-xs-faint: 0 1px 2px rgb(0 0 0 / 0.3);
+  --fx-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(255 255 255 / 0.06);
+  --fx-control: 0 1px 2px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --fx-control-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 0 0 1px rgb(255 255 255 / 0.06);
+  --fx-input: 0 1px 2px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --fx-panel: 0 2px 4px rgb(0 0 0 / 0.3), 0 0 0 1px rgb(255 255 255 / 0.06);
+  --fx-tooltip: 0 4px 12px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --fx-popover: 0 16px 40px -8px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --fx-button-primary: inset 0 -1px 0 rgb(0 0 0 / 0.12), 0 0 0 1px #f2f2f2, 0 1px 2px rgb(0 0 0 / 0.4);
+  --fx-nav-active: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 0 0 1px rgb(255 255 255 / 0.08), 0 1px 2px rgb(0 0 0 / 0.4);
+  --fx-inner-ring: inset 0 0 0 1px rgb(255 255 255 / 0.06);
+  --fx-focus: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--blue-500);
+
+  color-scheme: dark;
+}

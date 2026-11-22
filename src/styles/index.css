@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Expose semantic tokens to Tailwind: bg-surface, text-ink, border-line, shadow-card … */
+@theme inline {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Inter", "Geist", ui-sans-serif, sans-serif;
+
+  --color-frame: var(--bg-frame);
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-subtle: var(--bg-subtle);
+  --color-hover: var(--bg-hover);
+  --color-muted: var(--bg-muted);
+  --color-inverse: var(--bg-inverse);
+  --color-scrim: var(--bg-scrim);
+  --color-brand-subtle: var(--bg-brand-subtle);
+  --color-success-subtle: var(--bg-success-subtle);
+  --color-danger-subtle: var(--bg-danger-subtle);
+  --color-warning-subtle: var(--bg-warning-subtle);
+
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-ink-3: var(--text-tertiary);
+  --color-on-inverse: var(--text-inverse);
+  --color-success: var(--text-success);
+  --color-danger: var(--text-danger);
+  --color-warning: var(--text-warning);
+  --color-brand: var(--text-brand);
+
+  --color-line: var(--border-default);
+  --color-line-strong: var(--border-strong);
+  --color-line-brand: var(--border-brand);
+
+  --color-icon: var(--icon-default);
+  --color-icon-subtle: var(--icon-subtle);
+  --color-icon-muted: var(--icon-muted);
+  --color-icon-strong: var(--icon-strong);
+
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-danger: var(--status-danger);
+
+  --color-data-1: var(--data-1);
+  --color-data-1-hi: var(--data-1-highlight);
+  --color-data-2: var(--data-2);
+  --color-data-ghost: var(--data-ghost);
+
+  --color-blue: var(--accent-blue);
+  --color-blue-strong: var(--accent-blue-strong);
+  --color-orange: var(--accent-orange);
+  --color-orange-strong: var(--accent-orange-strong);
+  --color-green: var(--accent-green);
+  --color-green-strong: var(--accent-green-strong);
+  --color-purple: var(--accent-purple);
+  --color-purple-strong: var(--accent-purple-strong);
+  --color-pink: var(--accent-pink);
+  --color-pink-strong: var(--accent-pink-strong);
+
+  --color-primary: var(--primary-bg);
+  --color-primary-hover: var(--primary-bg-hover);
+  --color-primary-pressed: var(--primary-bg-pressed);
+  --color-on-primary: var(--primary-fg);
+
+  --shadow-xs: var(--fx-xs);
+  --shadow-xs-faint: var(--fx-xs-faint);
+  --shadow-card: var(--fx-card);
+  --shadow-control: var(--fx-control);
+  --shadow-control-soft: var(--fx-control-soft);
+  --shadow-input: var(--fx-input);
+  --shadow-panel: var(--fx-panel);
+  --shadow-tooltip: var(--fx-tooltip);
+  --shadow-popover: var(--fx-popover);
+  --shadow-button-primary: var(--fx-button-primary);
+  --shadow-nav-active: var(--fx-nav-active);
+  --shadow-inner-ring: var(--fx-inner-ring);
+  --shadow-focus: var(--fx-focus);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background: var(--bg-frame);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01" on;
+  }
+  ::selection {
+    background: var(--blue-200);
+    color: var(--neutral-900);
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--fx-focus);
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+}
+
+/* ---------- Text styles (Typography page) ---------- */
+@layer components {
+  .t-display { font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.025em; }
+  .t-title { font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: -0.014em; }
+  .t-heading { font-size: 15px; line-height: 1.2; font-weight: 500; letter-spacing: -0.0175em; }
+  .t-label { font-size: 14px; line-height: 1; font-weight: 500; letter-spacing: -0.015em; }
+  .t-body { font-size: 14px; line-height: 1.4; font-weight: 400; letter-spacing: -0.015em; }
+  .t-body-medium { font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: -0.015em; }
+  .t-caption { font-size: 12px; line-height: 1.4; font-weight: 400; letter-spacing: -0.01em; }
+  .t-caption-medium { font-size: 12px; line-height: 1.4; font-weight: 500; letter-spacing: -0.01em; }
+  .t-micro { font-size: 11px; line-height: 1; font-weight: 500; letter-spacing: -0.015em; }
+  .t-num-xl { font-family: var(--font-mono); font-size: 32px; line-height: 1.1; font-weight: 500; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .t-num-lg { font-family: var(--font-mono); font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .t-num { font-family: var(--font-mono); font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .t-num-sm { font-family: var(--font-mono); font-size: 12px; line-height: 1.4; font-weight: 400; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .t-num-sm-medium { font-family: var(--font-mono); font-size: 12px; line-height: 1.4; font-weight: 500; letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
+  .t-wordmark { font-size: 19px; line-height: 1; font-weight: 600; letter-spacing: -0.04em; }
+
+  /* Coloured icon tiles (Effects → Tile) */
+  .tile { position: relative; display: inline-grid; place-items: center; color: #fff; flex-shrink: 0; }
+  .tile-blue { background: linear-gradient(180deg, var(--blue-500), var(--blue-600)); box-shadow: 0 0 0 1.5px rgb(82 149 250 / 0.3), 0 2px 3px -1px rgb(7 103 247 / 0.2), inset 0 -1px 0 rgb(255 255 255 / 0.3); }
+  .tile-orange { background: linear-gradient(180deg, var(--orange-400), var(--orange-500)); box-shadow: 0 0 0 1.5px rgb(239 163 92 / 0.3), 0 2px 3px -1px rgb(145 73 9 / 0.2), inset 0 -1px 0 rgb(255 255 255 / 0.3); }
+  .tile-green { background: linear-gradient(180deg, var(--green-400), var(--green-500)); box-shadow: 0 0 0 1.5px rgb(77 224 114 / 0.3), 0 2px 3px -1px rgb(22 140 51 / 0.2), inset 0 -1px 0 rgb(255 255 255 / 0.3); }
+  .tile-pink { background: linear-gradient(180deg, var(--pink-400), var(--pink-600)); box-shadow: 0 0 0 1.5px rgb(253 92 247 / 0.3), 0 2px 3px -1px rgb(205 4 135 / 0.2), inset 0 -1px 0 rgb(255 255 255 / 0.3); }
+  .tile-purple { background: linear-gradient(180deg, var(--purple-500), var(--purple-600)); box-shadow: 0 0 0 1.5px rgb(123 66 255 / 0.3), 0 2px 3px -1px rgb(79 7 247 / 0.2), inset 0 -1px 0 rgb(255 255 255 / 0.3); }
+  .tile-ink { background: linear-gradient(180deg, var(--neutral-700), var(--neutral-800)); box-shadow: inset 0 0.64px 0.64px rgb(10 11 24 / 0.2), 0 0 0 1px rgb(0 0 0 / 0.1), inset 0 1px 0 rgb(255 255 255 / 0.12); }
+
+  .dot-success { background: var(--status-success); box-shadow: var(--fx-glow-success); }
+  .dot-warning { background: var(--status-warning); box-shadow: var(--fx-glow-warning); }
+  .dot-danger { background: var(--status-danger); box-shadow: var(--fx-glow-danger); }
+
+  /* Ticked meter track (Source split / ledger cards) */
+  .ticks {
+    background-image: repeating-linear-gradient(90deg, var(--border-default) 0 1.5px, transparent 1.5px 5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+@keyframes sy-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sy-pop-in { from { opacity: 0; transform: translateY(4px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes sy-dialog-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes sy-toast-in { from { opacity: 0; transform: translateY(-8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes sy-shimmer { from { background-position: -200px 0; } to { background-position: calc(200px + 100%) 0; } }
+@keyframes sy-spin { to { transform: rotate(360deg); } }
+@keyframes sy-pulse { 50% { opacity: 0.45; } }
